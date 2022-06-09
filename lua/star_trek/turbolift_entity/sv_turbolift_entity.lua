@@ -43,7 +43,16 @@ hook.Add("Star_Trek.Turbolift_Entity.OnVarChanged", "", function(ent, name, old,
 end)
 
 hook.Add("Star_Trek.Turbolift.ExcludeTeleport", "Star_Trek.Turbolift_Entity.ExcludeTeleport", function(liftEntity, ent)
-	if ent == liftEntity:GetParent() then
+	local parent = liftEntity:GetParent()
+	if not IsValid(parent) then
+		return
+	end
+
+	if ent == parent then
+		return true
+	end
+
+	if table.HasValue(parent:GetChildren(), ent) then
 		return true
 	end
 end)

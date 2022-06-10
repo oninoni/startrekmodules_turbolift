@@ -30,7 +30,7 @@ hook.Add("Star_Trek.Turbolift_Entity.OnVarChanged", "", function(ent, name, old,
 			return
 		end
 
-		local turboLiftData = ent.Data
+		local turboLiftData = ent.TurboliftData
 		if not istable(turboLiftData) then
 			return
 		end

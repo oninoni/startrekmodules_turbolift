@@ -78,7 +78,7 @@ function ENT:Initialize()
 		ClosingTime = 0,
 		CloseCallback = nil
 	}
-	self.Data = turboliftData
+	self.TurboliftData = turboliftData
 
 	table.insert(Star_Trek.Turbolift.Lifts, turboliftData)
 	table.SortByMember(Star_Trek.Turbolift.Lifts, "Name", true)
@@ -90,7 +90,7 @@ function ENT:OnRemove()
 		parent:Remove()
 	end
 
-	table.RemoveByValue(Star_Trek.Turbolift.Lifts, self.Data)
+	table.RemoveByValue(Star_Trek.Turbolift.Lifts, self.TurboliftData)
 end
 
 function ENT:Use(ply)
